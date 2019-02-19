@@ -1,0 +1,26 @@
+{
+  "name": "mern-graphql-full-stack",
+  "version": "1.0.0",
+  "description": "Full Stack Library System build around MERN stack with GraphQL API System",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reactjs",
+    "expressjs",
+    "mongodb",
+    "nodejs",
+    "graphql",
+    "apolloclient"
+  ],
+  "author": "Nooruddin Khorasi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
