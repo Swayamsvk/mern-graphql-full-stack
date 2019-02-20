@@ -4,7 +4,7 @@ const schema = require("./schema/schema");
 const app = express();
 
 //  Setup middleware
-app.use("/graphql", graphqlHTTP({ schema })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
+app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
