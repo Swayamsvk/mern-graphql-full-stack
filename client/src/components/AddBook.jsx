@@ -30,7 +30,13 @@ class AddBook extends Component {
   submitForm(e) {
     //  prevent default behavior of refreshing the page on form submit
     e.preventDefault();
-    this.props.addBookMutation();
+    this.props.addBookMutation({
+      variables: {
+        name: this.state.name,
+        genre: this.state.genre,
+        authorId: this.state.authorId
+      }
+    });
   }
   render() {
     return (
