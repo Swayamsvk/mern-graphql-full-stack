@@ -4,7 +4,7 @@
   "description": "Full Stack Library System build around MERN stack with GraphQL API System",
   "main": "app.js",
   "scripts": {
-    "server": "nodemon app.js",
+    "server": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
