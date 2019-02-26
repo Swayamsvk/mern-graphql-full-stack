@@ -2,6 +2,7 @@ const express = require("express");
 const graphqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const cors = require("cors");
 const app = express();
@@ -20,6 +21,11 @@ mongoose.connection.once("open", () => {
 
 //  Setup middleware
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
+
+app.use(express.static("public"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
