@@ -1,2 +1,2 @@
-web: npm start --prefix server
-web: npm heroku-postbuild --prefix server
+web: npm run start --prefix server
+web: npm run heroku-postbuild --prefix server
