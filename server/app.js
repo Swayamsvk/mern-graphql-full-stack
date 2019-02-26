@@ -23,9 +23,9 @@ mongoose.connection.once("open", () => {
 //  Setup middleware
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
 
-app.use(express.static(__dirname, "client", "build"));
+app.use(express.static(path.join(__dirname, "public")));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 const port = process.env.PORT || 5000;
