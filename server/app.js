@@ -23,10 +23,11 @@ mongoose.connection.once("open", () => {
 //  Setup middleware
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
 
-app.use(express.static("../client/public"));
-console.log(__dirname);
-app.get("/", (req, res) => {
-  res.sendFile("../client/public/", "index.html");
+app.use(express.static(path.join(__dirname, "../client/public")));
+
+console.log(path.join(__dirname, "../client/public/", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/public/", "index.html"));
 });
 
 const port = process.env.PORT || 5000;
