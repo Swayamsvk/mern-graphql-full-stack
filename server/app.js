@@ -23,12 +23,13 @@ mongoose.connection.once("open", () => {
 //  Setup middleware
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
 
-app.use(express.static(path.join(__dirname, "../client/public")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"));
 
-console.log(path.join(__dirname, "../client/public/", "index.html"));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/", "index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+  });
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
