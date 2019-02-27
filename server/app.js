@@ -24,7 +24,8 @@ mongoose.connection.once("open", () => {
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); //    or app.use("/graphql", graphqlHTTP({ schema: schema }));
 
 app.use(express.static("../client/public"));
-app.get("*", (req, res) => {
+console.log(__dirname);
+app.get("/", (req, res) => {
   res.sendFile("../client/public/", "index.html");
 });
 
